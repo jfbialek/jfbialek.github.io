@@ -1,0 +1,39 @@
+body{
+    background-color: #ffffff;
+}
+
+img.banner{
+    width: 444px;
+    padding-top: 44px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type=text]{
+    padding: 10px;
+    margin:10px 0;
+    border-radius:10px;
+    font-family: Helvetica, Arial;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .iconCont{
+    text-align: center;
+    margin-top: 45px;
+  }
+  .icon img {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border: 1px solid transparent;
+    border-color: #e0e0e6;
+    padding: 1px;
+    vertical-align: middle;
+    margin: 0;
+  }
+  .icon img:hover {
+      border:1px solid #1a5eff;
+  }
+  
