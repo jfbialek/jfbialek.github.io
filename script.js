@@ -168,7 +168,7 @@ function handleWberClick(event) {
     if (clickLocation === 'top') {
         console.log("Clicked top half - play audio stream");
         const audio = new Audio('https://radio.monroe.edu/wber.mp3');  // Create audio element
-        audio.volume = 0.1; // Set volume
+        audio.volume = 0.01; // Set volume
         audio.play();  // Play the audio
     } else {
         console.log("Clicked bottom half - navigate to wber.org");
