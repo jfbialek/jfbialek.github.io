@@ -104,17 +104,6 @@ function search(x) {
                 url = "https://www.cambly.com/en/tutor/schedule?calendar=schedule"
             break;
 
-        case 14:
-            const currentDate = new Date();
-            const currentMonth = String(currentDate.getMonth() + 1).padStart(2, '0');
-            const currentDay = String(currentDate.getDate()).padStart(2, '0');
-            const currentYear = currentDate.getFullYear();
-            if (elem.value == "")
-                url = "https://static01.nyt.com/images/" + currentYear + "/" + currentMonth + "/" + currentDay + "/nytfrontpage/scan.pdf"
-            else
-                url = "https://www.nytimes.com/search?query=" + (elem.value);
-            break;
-
         case 15:
             if (elem.value == "")
                 url = "https://reddit.com"
@@ -186,3 +175,35 @@ function handleWberClick(event) {
         window.open(wberUrl, '_self');  // Open the URL in the current window
     }
 }
+
+
+const nytImg = document.getElementById('nyt.png'); 
+
+nytImg.addEventListener('load', function () {
+    // Image is loaded, now attach the click event listener
+    nytImg.addEventListener('click', handleNytClick);
+});
+
+function handleNytClick(event) {
+    const rect = nytImg.getBoundingClientRect(); // Get image position and size
+    const clickY = event.clientY - rect.top;  // Calculate click position relative to top of image
+    const clickLocation = clickY >= rect.height / 2 ? 'top' : 'bottom';  // Determine click location
+  
+    let nytUrl; // Declare the URL variable outside the if-else block
+  
+    if (clickLocation === 'top') {
+      console.log("Clicked top half - Go to NYT Homepage");
+      nytUrl = "https://nytimes.com/";  // Define URL for top click
+    } else {
+      console.log("Clicked bottom half - navigate to NYT Front Page");
+      const currentDate = new Date();
+      const currentMonth = String(currentDate.getMonth() + 1).padStart(2, '0');
+      const currentDay = String(currentDate.getDate()).padStart(2, '0');
+      const currentYear = currentDate.getFullYear();
+      nytUrl = "https://static01.nyt.com/images/" + currentYear + "/" + currentMonth + "/" + currentDay + "/nytfrontpage/scan.pdf";  // Define URL for bottom click
+    }
+  
+    // Open the URL after determining it
+    window.open(nytUrl, '_self');  // Open the URL in the current window
+  }
+  
