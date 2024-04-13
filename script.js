@@ -1,46 +1,209 @@
-<!DOCTYPE html>
-<html>
+window.onload = function () {
+    document.getElementById("input").focus();
+};
 
-<head>
-    <title>Bialekoogle</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <link rel="icon" type="image/x-icon" href="images/b-fav.jpg">
+function search(x) {
+    var elem = document.getElementById('input');
+    var url;
+    switch (x) {
+        case 0:
+            if (elem.value == "")
+                url = "https://duckduckgo.com/"
+            else
+                url = "https://duckduckgo.com/?q=" + (elem.value);
+            break;
 
-</head>
+        case 1:
+            if (elem.value == "")
+                url = "https://google.com/"
+            else
+                url = "https://google.com/search?q=" + (elem.value);
+            break;
 
-<body>
+        case 2:
+            if (elem.value == "")
+                url = "https://en.wikipedia.org/wiki/Main_Page"
+            else
+                url = "https://en.wikipedia.org/wiki/Special:Search?search=" + (elem.value);
+            break;
+
+        case 3:
+            if (elem.value == "")
+                url = "https://maps.google.com"
+            else
+                url = "https://maps.google.com/?q=" + (elem.value);
+            break;
+
+        case 4:
+            if (elem.value == "")
+                url = "https://translate.google.com/"
+            else
+                url = "https://translate.google.com/?q=" + (elem.value);
+            break;
+
+        case 5:
+            if (elem.value == "")
+                url = "https://www.youtube.com/feed/subscriptions"
+            else
+                url = "https://youtube.com/search?q=" + (elem.value);
+            break;
+
+        case 6:
+            if (elem.value == "")
+                url = "https://www.inoreader.com/all_articles"
+            else
+                url = "https://www.google.com/search?q=" + (elem.value) + "&tbm=nws&source=lnt&tbs=qdr:d";
+            break;
+
+        case 7:
+            if (elem.value == "")
+                url = "https://en.wiktionary.org/wiki/Wiktionary:Main_Page"
+            else
+                url = "https://en.wiktionary.org/wiki/Special:Search?search=" + (elem.value);
+            break;
+
+        case 8:
+            if (elem.value == "")
+                url = "https://thepiratebay0.org/"
+            else
+                url = "https://thepiratebay0.org/s/?page=0&orderby=0&q=" + (elem.value);
+            break;
+
+        case 9:
+            if (elem.value == "")
+                url = "https://www.goodreads.com/"
+            else
+                url = "https://www.goodreads.com/search?q=" + (elem.value);
+            break;
+
+        case 10:
+            if (elem.value == "")
+                url = "https://www.flightradar24.com/"
+            else
+                url = "https://www.flightradar24.com/" + (elem.value);
+            break;
+
+        case 11:
+            if (elem.value == "")
+                url = "https://www.nytimes.com/crosswords/archive"
+            else
+                url = "https://www.nytimes.com/crosswords/archive" + (elem.value);
+            break;
+
+        case 12:
+            if (elem.value == "")
+                url = "https://www.wunderground.com/wundermap"
+            else
+                url = "https://en.wikipedia.org/wiki/" + (elem.value) + "#Climate";
+            break;
+
+        case 13:
+            if (elem.value == "")
+                url = "https://www.cambly.com/en/tutor/schedule?calendar=schedule"
+            else
+                url = "https://www.cambly.com/en/tutor/schedule?calendar=schedule"
+            break;
+
+        case 15:
+            if (elem.value == "")
+                url = "https://reddit.com"
+            else
+                url = "https://www.reddit.com/search/?q=" + (elem.value);
+            break;
+
+        case 16:
+            if (elem.value == "")
+                url = "https://www.geocaching.com"
+            else
+                url = "https://www.geocaching.com/play/results/?st=" + (elem.value);
+            break;
+
+        case 17:
+            if (elem.value == "")
+                url = "https://www.nytimes.com/games/wordle/index.html"
+            else
+                url = "https://www.nytimes.com/games/wordle/index.html" + (elem.value);
+            break;
+
+        case 18:
+            if (elem.value == "")
+                url = "https://www.facebook.com/"
+            else
+                url = "https://www.facebook.com/" //+ (elem.value);
+            break;
+
+        case 20:
+            if (elem.value == "")
+                url = "https://wordswithfriends.com/"
+            else
+                url = "https://wordswithfriends.com/" + (elem.value);
+            break;
+    }
+    window.open(url, '_self');
+}
+
+document.addEventListener('keydown', (event) => {
+    var name = event.key;
+    var code = event.code;
+    if (name == "Enter" || code == "Enter")
+        search(1);
+    else if (name == "Tab" || code == "Tab")
+        search(2);
+    else return (1);
+})
 
 
-    <img alt="Bialekoogle - Search like a Bialek" class="banner" src="images/bialekoogle.png">
-    <p>
-        <input id="input" type="text" size="55">
-    </p>
-    <div class=iconCont>
-        <div class="icon">
-            <img onclick="search(0)" src="images/ddg.png">
-            <img onclick="search(1)" src="images/google.png">
-            <img onclick="search(2)" src="images/wikipedia.png">
-            <img onclick="search(3)" src="images/map.png">
-            <img onclick="search(4)" src="images/translate.png">
-            <img onclick="search(5)" src="images/yt.png">
-            <img onclick="search(6)" src="images/news.png">
-            <p>
-                <img onclick="search(7)" src="images/wiktionary.png">
-                <img onclick="search(8)" src="images/bit.png">
-                <img onclick="search(9)" src="images/goodreads.png">
-                <img onclick="search(10)" src="images/fr24.png">
-                <img onclick="search(11)" src="images/ss.png">
-                <img onclick="search(12)" src="images/wx.png">
-                <img onclick="search(13)" src="images/cambly.png">
-            <p>
-                <img id="nyt.png" onclick="search(14)" src="images/nyt.png">
-                <img onclick="search(15)" src="images/reddit.png">
-                <img onclick="search(16)" src="images/geocache.png">
-                <img onclick="search(17)" src="images/wordle.png">
-                <img onclick="search(18)" src="images/face.png">
-                <img id="wber.png" src="images/wber.png">
-                <img onclick="search(20)" src="images/words.png">
-        </div>
-    </div>
-    <script type="text/javascript" src="script.js"></script>
-</body>
+const wberImg = document.getElementById('wber.png'); // Get the wber.png image element
+
+wberImg.addEventListener('load', function () {
+    // Image is loaded, now attach the click event listener
+    wberImg.addEventListener('click', handleWberClick);
+});
+
+function handleWberClick(event) {
+    const rect = wberImg.getBoundingClientRect(); // Get image position and size
+    const clickY = event.clientY - rect.top;  // Calculate click position relative to top of image
+    const clickLocation = clickY >= rect.height / 2 ? 'top' : 'bottom';  // Determine click location
+
+    if (clickLocation === 'top') {
+        console.log("Clicked top half - play audio stream");
+        const audio = new Audio('https://radio.monroe.edu/wber.mp3');  // Create audio element
+        audio.play();  // Play the audio
+    } else {
+        console.log("Clicked bottom half - navigate to wber.org");
+        const wberUrl = "https://wber.org/";  // Define the target URL
+        window.open(wberUrl, '_self');  // Open the URL in the current window
+    }
+}
+
+
+const nytImg = document.getElementById('nyt.png'); 
+
+nytImg.addEventListener('load', function () {
+    // Image is loaded, now attach the click event listener
+    nytImg.addEventListener('click', handleNytClick);
+});
+
+function handleNytClick(event) {
+    const rect = nytImg.getBoundingClientRect(); // Get image position and size
+    const clickY = event.clientY - rect.top;  // Calculate click position relative to top of image
+    const clickLocation = clickY >= rect.height / 2 ? 'top' : 'bottom';  // Determine click location
+  
+    let nytUrl; // Declare the URL variable outside the if-else block
+  
+    if (clickLocation === 'top') {
+      console.log("Clicked top half - Go to NYT Homepage");
+      nytUrl = "https://nytimes.com/";  // Define URL for top click
+    } else {
+      console.log("Clicked bottom half - navigate to NYT Front Page");
+      const currentDate = new Date();
+      const currentMonth = String(currentDate.getMonth() + 1).padStart(2, '0');
+      const currentDay = String(currentDate.getDate()).padStart(2, '0');
+      const currentYear = currentDate.getFullYear();
+      nytUrl = "https://static01.nyt.com/images/" + currentYear + "/" + currentMonth + "/" + currentDay + "/nytfrontpage/scan.pdf";  // Define URL for bottom click
+    }
+  
+    // Open the URL after determining it
+    window.open(nytUrl, '_self');  // Open the URL in the current window
+  }
+  
