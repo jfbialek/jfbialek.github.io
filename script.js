@@ -1,6 +1,6 @@
-window.onload = function() {
+window.onload = function () {
     document.getElementById("input").focus();
-  };
+};
 
 function search(x) {
     var elem = document.getElementById('input');
@@ -110,7 +110,7 @@ function search(x) {
             const currentDay = String(currentDate.getDate()).padStart(2, '0');
             const currentYear = currentDate.getFullYear();
             if (elem.value == "")
-                url="https://static01.nyt.com/images/" + currentYear + "/" + currentMonth + "/" + currentDay + "/nytfrontpage/scan.pdf"
+                url = "https://static01.nyt.com/images/" + currentYear + "/" + currentMonth + "/" + currentDay + "/nytfrontpage/scan.pdf"
             else
                 url = "https://www.nytimes.com/search?query=" + (elem.value);
             break;
@@ -143,19 +143,12 @@ function search(x) {
                 url = "https://www.facebook.com/" //+ (elem.value);
             break;
 
-        case 19:
-            if (elem.value == "")
-            url = "https://wber.org/"
-        else
-            url = "https://wber.org/" + (elem.value);
-        break;
-
         case 20:
             if (elem.value == "")
-            url = "https://wordswithfriends.com/"
-        else
-            url = "https://wordswithfriends.com/" + (elem.value);
-        break;
+                url = "https://wordswithfriends.com/"
+            else
+                url = "https://wordswithfriends.com/" + (elem.value);
+            break;
     }
     window.open(url, '_self');
 }
@@ -163,9 +156,33 @@ function search(x) {
 document.addEventListener('keydown', (event) => {
     var name = event.key;
     var code = event.code;
-    if(name=="Enter" || code=="Enter")
-    search(1);
-    else if(name=="Tab" || code=="Tab")
-    search(2);
-    else return(1);
+    if (name == "Enter" || code == "Enter")
+        search(1);
+    else if (name == "Tab" || code == "Tab")
+        search(2);
+    else return (1);
 })
+
+
+const wberImg = document.getElementById('wber.png'); // Get the wber.png image element
+
+wberImg.addEventListener('load', function () {
+    // Image is loaded, now attach the click event listener
+    wberImg.addEventListener('click', handleWberClick);
+});
+
+function handleWberClick(event) {
+    const rect = wberImg.getBoundingClientRect(); // Get image position and size
+    const clickY = event.clientY - rect.top;  // Calculate click position relative to top of image
+    const clickLocation = clickY >= rect.height / 2 ? 'top' : 'bottom';  // Determine click location
+
+    if (clickLocation === 'top') {
+        console.log("Clicked top half - play audio stream");
+        const audio = new Audio('https://radio.monroe.edu/wber.mp3');  // Create audio element
+        audio.play();  // Play the audio
+    } else {
+        console.log("Clicked bottom half - navigate to wber.org");
+        const wberUrl = "https://wber.org/";  // Define the target URL
+        window.open(wberUrl, '_self');  // Open the URL in the current window
+    }
+}
