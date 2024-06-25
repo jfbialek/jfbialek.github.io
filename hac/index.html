@@ -8,34 +8,20 @@
 </head>
 <body>
     <div class="container">
-        <div class="counter-container">
-            <h2>Hourly Average Counter</h2>
-            <div class="timer-controls">
-                <button id="startButton">Start Timer</button>
-                <button id="stopButton">Stop Timer</button>
-            </div>
-            <div class="counter-controls">
-                <button id="incrementButton">Increment Counter</button>
-            </div>
-            <div class="display">
-                <p>Counts: <span id="count">0</span></p>
-                <p>Elapsed Time: <span id="elapsedTime">00:00:00</span> hours</p>
-                <p>Average per Hour: <span id="average">0.00</span></p>
-            </div>
+        <h1>Hourly Average Counter</h1>
+        <div class="timer-controls">
+            <button id="startButton">Start Timer</button>
+            <button id="stopButton">Stop Timer</button>
         </div>
-        <div class="countdown-container">
-            <h2>Countdown Timer</h2>
-            <div class="countdown-controls">
-                <input type="text" id="minutes" value="28" maxlength="2"> :
-                <input type="text" id="seconds" value="42" maxlength="2">
-                <button id="countdownStartButton">Start Countdown</button>
-                <button id="countdownStopButton">Stop Countdown</button>
-                <button id="countdownResetButton">Reset Countdown</button>
-                <p>Countdown: <span id="countdownDisplay">28:42</span></p>
-            </div>
+        <div class="counter-controls">
+            <button id="incrementButton">Increment Counter</button>
+        </div>
+        <div class="display">
+            <p>Counts: <span id="count">0</span></p>
+            <p>Elapsed Time: <span id="elapsedTime">0.00</span> hours</p>
+            <p>Average per Hour: <span id="average">0.00</span></p>
         </div>
     </div>
-    <audio id="alertSound" src="alert.wav"></audio>
     <script src="script.js"></script>
 </body>
 </html>
