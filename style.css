@@ -1,41 +1,77 @@
 body {
   background-color: #ffffff;
+  font-size: 1.1em;
 }
 
 img.banner {
-  width: 444px;
-  padding-top: 44px;
+  width: 490px;
+  padding-top: 50px;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
 input[type=text] {
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 10px;
+  padding: 11px;
+  margin: 11px 0;
+  border-radius: 11px;
   font-family: Helvetica, Arial;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  font-size: 1.1em;
 }
 
 .iconCont {
   text-align: center;
-  margin-top: 45px;
+  margin-top: 50px;
 }
 
 .icon img {
   display: inline-block;
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 110px;
   border: 1px solid transparent;
   border-color: #e0e0e6;
-  padding: 1px;
+  padding: 1.1px;
   vertical-align: middle;
   margin: 0;
 }
 
 .icon img:hover {
   border: 1px solid #1a5eff;
+}
+
+.data-bar {
+  background-color: #f8f9fa;
+  padding: 10px 0;
+  text-align: center;
+  font-family: Helvetica, Arial;
+  font-size: 0.9em;
+  border-bottom: 1px solid #e0e0e6;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.data-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.data-item .icon {
+  width: 24px;
+  /* Adjust the size as necessary */
+  height: 24px;
+  /* Adjust the size as necessary */
+}
+
+.data-item i {
+  width: 24px;
+  /* Adjust size as necessary */
+  height: 24px;
+  /* Adjust size as necessary */
+  color: #434343;
+  /* Icon color */
 }

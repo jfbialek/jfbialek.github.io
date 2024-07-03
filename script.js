@@ -1,5 +1,11 @@
 window.onload = function () {
     document.getElementById("input").focus();
+
+    const wberImg = document.getElementById('wber.png');
+    wberImg.addEventListener('click', handleWberClick);
+
+    const nytImg = document.getElementById('nyt.png');
+    nytImg.addEventListener('click', handleNytClick);
 };
 
 function search(x) {
@@ -7,204 +13,113 @@ function search(x) {
     var url;
     switch (x) {
         case 0:
-            if (elem.value == "")
-                url = "https://duckduckgo.com/"
-            else
-                url = "https://duckduckgo.com/?q=" + (elem.value);
+            url = elem.value ? "https://duckduckgo.com/?q=" + elem.value : "https://duckduckgo.com/";
             break;
-
         case 1:
-            if (elem.value == "")
-                url = "https://google.com/"
-            else
-                url = "https://google.com/search?q=" + (elem.value);
+            url = elem.value ? "https://google.com/search?q=" + elem.value : "https://google.com/";
             break;
-
         case 2:
-            if (elem.value == "")
-                url = "https://en.wikipedia.org/wiki/Main_Page"
-            else
-                url = "https://en.wikipedia.org/wiki/Special:Search?search=" + (elem.value);
+            url = elem.value ? "https://en.wikipedia.org/wiki/Special:Search?search=" + elem.value : "https://en.wikipedia.org/wiki/Main_Page";
             break;
-
         case 3:
-            if (elem.value == "")
-                url = "https://maps.google.com"
-            else
-                url = "https://maps.google.com/?q=" + (elem.value);
+            url = elem.value ? "https://maps.google.com/?q=" + elem.value : "https://maps.google.com";
             break;
-
         case 4:
-            if (elem.value == "")
-                url = "https://translate.google.com/"
-            else
-                url = "https://translate.google.com/?q=" + (elem.value);
+            url = elem.value ? "https://translate.google.com/?q=" + elem.value : "https://translate.google.com/";
             break;
-
         case 5:
-            if (elem.value == "")
-                url = "https://www.youtube.com/feed/subscriptions"
-            else
-                url = "https://youtube.com/search?q=" + (elem.value);
+            url = elem.value ? "https://youtube.com/search?q=" + elem.value : "https://www.youtube.com/feed/subscriptions";
             break;
-
         case 6:
-            if (elem.value == "")
-                url = "https://www.inoreader.com/all_articles"
-            else
-                url = "https://www.google.com/search?q=" + (elem.value) + "&tbm=nws&source=lnt&tbs=qdr:d";
+            url = elem.value ? "https://www.google.com/search?q=" + elem.value + "&tbm=nws&source=lnt&tbs=qdr:d" : "https://www.inoreader.com/all_articles";
             break;
-
         case 7:
-            if (elem.value == "")
-                url = "https://en.wiktionary.org/wiki/Wiktionary:Main_Page"
-            else
-                url = "https://en.wiktionary.org/wiki/Special:Search?search=" + (elem.value);
+            url = elem.value ? "https://en.wiktionary.org/wiki/Special:Search?search=" + elem.value : "https://en.wiktionary.org/wiki/Wiktionary:Main_Page";
             break;
-
         case 8:
-            if (elem.value == "")
-                url = "https://thepiratebay0.org/"
-            else
-                url = "https://thepiratebay0.org/s/?page=0&orderby=0&q=" + (elem.value);
+            url = elem.value ? "https://thepiratebay0.org/s/?page=0&orderby=0&q=" + elem.value : "https://thepiratebay0.org/";
             break;
-
         case 9:
-            if (elem.value == "")
-                url = "https://www.goodreads.com/"
-            else
-                url = "https://www.goodreads.com/search?q=" + (elem.value);
+            url = elem.value ? "https://www.goodreads.com/search?q=" + elem.value : "https://www.goodreads.com/";
             break;
-
         case 10:
-            if (elem.value == "")
-                url = "https://www.flightradar24.com/"
-            else
-                url = "https://www.flightradar24.com/" + (elem.value);
+            url = elem.value ? "https://www.flightradar24.com/" + elem.value : "https://www.flightradar24.com/";
             break;
-
         case 11:
-            if (elem.value == "")
-                url = "https://www.nytimes.com/crosswords/archive"
-            else
-                url = "https://www.nytimes.com/crosswords/archive" + (elem.value);
+            url = elem.value ? "https://www.nytimes.com/crosswords/archive" + elem.value : "https://www.nytimes.com/crosswords/archive";
             break;
-
         case 12:
-            if (elem.value == "")
-                url = "https://www.wunderground.com/wundermap"
-            else
-                url = "https://en.wikipedia.org/wiki/" + (elem.value) + "#Climate";
+            url = elem.value ? "https://en.wikipedia.org/wiki/" + elem.value + "#Climate" : "https://www.wunderground.com/wundermap";
             break;
-
         case 13:
-            if (elem.value == "")
-                url = "https://www.cambly.com/en/tutor/schedule?calendar=schedule"
-            else
-                url = "https://www.cambly.com/en/tutor/schedule?calendar=schedule"
+            url = "https://libbyapp.com/";
             break;
-
         case 15:
-            if (elem.value == "")
-                url = "https://reddit.com"
-            else
-                url = "https://www.reddit.com/search/?q=" + (elem.value);
+            url = elem.value ? "https://www.reddit.com/search/?q=" + elem.value : "https://reddit.com";
             break;
-
         case 16:
-            if (elem.value == "")
-                url = "https://www.geocaching.com"
-            else
-                url = "https://www.geocaching.com/play/results/?st=" + (elem.value);
+            url = elem.value ? "https://www.geocaching.com/play/results/?st=" + elem.value : "https://www.geocaching.com";
             break;
-
         case 17:
-            if (elem.value == "")
-                url = "https://www.nytimes.com/games/wordle/index.html"
-            else
-                url = "https://www.nytimes.com/games/wordle/index.html" + (elem.value);
+            url = "https://www.nytimes.com/games/wordle/index.html";
             break;
-
         case 18:
-            if (elem.value == "")
-                url = "https://www.facebook.com/"
-            else
-                url = "https://www.facebook.com/" //+ (elem.value);
+            url = "https://www.facebook.com/";
             break;
-
         case 20:
-            if (elem.value == "")
-                url = "https://wordswithfriends.com/"
-            else
-                url = "https://wordswithfriends.com/" + (elem.value);
+            url = elem.value ? "https://wordswithfriends.com/" + elem.value : "https://wordswithfriends.com/";
             break;
     }
     window.open(url, '_self');
 }
 
 document.addEventListener('keydown', (event) => {
-    var name = event.key;
-    var code = event.code;
-    if (name == "Enter" || code == "Enter")
+    if (event.key === "Enter" || event.code === "Enter") {
         search(1);
-    else if (name == "Tab" || code == "Tab")
+    } else if (event.key === "Tab" || event.code === "Tab") {
         search(2);
-    else return (1);
-})
-
-
-const wberImg = document.getElementById('wber.png'); // Get the wber.png image element
-
-wberImg.addEventListener('load', function () {
-    // Image is loaded, now attach the click event listener
-    wberImg.addEventListener('click', handleWberClick);
+    }
 });
 
 function handleWberClick(event) {
-    const rect = wberImg.getBoundingClientRect(); // Get image position and size
-    const clickY = event.clientY - rect.top;  // Calculate click position relative to top of image
-    const clickLocation = clickY >= rect.height / 2 ? 'top' : 'bottom';  // Determine click location
+    console.log("Clicked WBER icon - opening audio stream in a popup");
 
-    if (clickLocation === 'top') {
-        console.log("Clicked top half - play audio stream");
-        const audio = new Audio('https://radio.monroe.edu/wber.mp3');  // Create audio element
-        audio.volume = 0.08; // Set volume
-        audio.play();  // Play the audio
-    } else {
-        console.log("Clicked bottom half - navigate to wber.org");
-        const wberUrl = "https://wber.org/";  // Define the target URL
-        window.open(wberUrl, '_self');  // Open the URL in the current window
+    // URL of the audio stream
+    const audioUrl = 'https://radio.monroe.edu/wber.mp3';
+
+    // Options for the popup window
+    const popupWidth = 400;
+    const popupHeight = 200;
+    const left = (window.screen.width - popupWidth) / 2;
+    const top = (window.screen.height - popupHeight) / 2;
+    const popupOptions = `width=${popupWidth},height=${popupHeight},left=${left},top=${top}`;
+
+    // Open the popup window with the audio stream
+    const audioPopup = window.open(audioUrl, 'WBER Audio Stream', popupOptions);
+
+    // Check if popup was blocked
+    if (!audioPopup || audioPopup.closed || typeof audioPopup.closed === 'undefined') {
+        alert('Popup blocked! Please allow popups for this site to listen to WBER.');
     }
 }
 
-
-
-const nytImg = document.getElementById('nyt.png');
-
-nytImg.addEventListener('load', function () {
-    // Image is loaded, now attach the click event listener
-    nytImg.addEventListener('click', handleNytClick);
-});
-
 function handleNytClick(event) {
-    const rect = nytImg.getBoundingClientRect(); // Get image position and size
-    const clickY = event.clientY - rect.top;  // Calculate click position relative to top of image
-    const clickLocation = clickY >= rect.height / 2 ? 'top' : 'bottom';  // Determine click location
+    const nytImg = event.currentTarget;
+    const rect = nytImg.getBoundingClientRect();
+    const clickY = event.clientY - rect.top;
+    const clickLocation = clickY >= rect.height / 2 ? 'bottom' : 'top';
 
-    let nytUrl; // Declare the URL variable outside the if-else block
-
+    let url;
     if (clickLocation === 'top') {
-        console.log("Clicked top half - Go to NYT Homepage");
-        nytUrl = "https://nytimes.com/";  // Define URL for top click
+        console.log("Clicked top half - Go to WSJ Homepage");
+        url = "https://www.wsj.com/";
     } else {
-        console.log("Clicked bottom half - navigate to NYT Front Page");
+        console.log("Clicked bottom half - Go to NYT Front Page");
         const currentDate = new Date();
         const currentMonth = String(currentDate.getMonth() + 1).padStart(2, '0');
         const currentDay = String(currentDate.getDate()).padStart(2, '0');
         const currentYear = currentDate.getFullYear();
-        nytUrl = "https://static01.nyt.com/images/" + currentYear + "/" + currentMonth + "/" + currentDay + "/nytfrontpage/scan.pdf";  // Define URL for bottom click
+        url = "https://static01.nyt.com/images/" + currentYear + "/" + currentMonth + "/" + currentDay + "/nytfrontpage/scan.pdf";
     }
-
-    // Open the URL after determining it
-    window.open(nytUrl, '_self');  // Open the URL in the current window
+    window.open(url, '_self');
 }

@@ -5,17 +5,49 @@
     <title>Bialekoogle</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
     <link rel="icon" type="image/x-icon" href="images/b-fav.jpg">
-
+    <script src="https://unpkg.com/feather-icons"></script>
 </head>
 
 <body>
-
-
+    <div class="data-bar">
+        <span class="data-item">
+            <i data-feather="map-pin"></i>
+            <span id="location">--</span>
+        </span>
+        <span class="data-item">
+            <i data-feather="thermometer"></i>
+            <span id="temperature">--°C</span>
+        </span>
+        <span class="data-item">
+            <i data-feather="droplet"></i>
+            <span id="humidity">--%</span>
+        </span>
+        <span class="data-item">
+            <i data-feather="wind"></i>
+            <span id="wind-speed">-- km/h</span>
+        </span>
+        <span class="data-item">
+            <i data-feather="sunrise"></i>
+            <span id="sunrise">--:--</span>
+        </span>
+        <span class="data-item">
+            <i data-feather="sunset"></i>
+            <span id="sunset">--:--</span>
+        </span>
+        <span class="data-item">
+            <i data-feather="globe"></i>
+            <span id="iss-countdown">--</span>
+        </span>
+        <span class="data-item">
+            <i data-feather="music"></i>
+            <span id="current-song">--</span>
+        </span>
+    </div>
     <img alt="Bialekoogle - Search like a Bialek" class="banner" src="images/bialekoogle.png">
     <p>
         <input id="input" type="text" size="55">
     </p>
-    <div class=iconCont>
+    <div class="iconCont">
         <div class="icon">
             <img onclick="search(0)" src="images/ddg.png">
             <img onclick="search(1)" src="images/google.png">
@@ -31,7 +63,7 @@
                 <img onclick="search(10)" src="images/fr24.png">
                 <img onclick="search(11)" src="images/ss.png">
                 <img onclick="search(12)" src="images/wx.png">
-                <img onclick="search(13)" src="images/cambly.png">
+                <img onclick="search(13)" src="images/libby.png">
             <p>
                 <img id="nyt.png" onclick="search(14)" src="images/nyt.png">
                 <img onclick="search(15)" src="images/reddit.png">
@@ -42,5 +74,11 @@
                 <img onclick="search(20)" src="images/words.png">
         </div>
     </div>
+    <script>
+        feather.replace();
+    </script>
     <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="data.js"></script>
 </body>
+
+</html>
