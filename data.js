@@ -33,26 +33,6 @@ function formatTime(timeString) {
   return `${hours}:${minutes}`;
 }
 
-// Function to fetch the next ISS pass times
-async function getNextISSPassTimes(lat, lon) {
-  const apiKey = 'DAHAPA-SUS6CL-CQPX9H-500G'; // Replace with your N2YO API key
-  const response = await fetch(`https://api.n2yo.com/rest/v1/satellite/visualpasses/25544/${lat}/${lon}/0/10/300/&apiKey=${apiKey}`);
-  const data = await response.json();
-  return data;
-}
-
-// Function to calculate time difference and format countdown
-function calculateCountdown(passTime) {
-  const currentTime = new Date();
-  const nextPassTime = new Date(passTime * 1000); // Convert UNIX timestamp to milliseconds
-  const timeDiff = nextPassTime - currentTime;
-  const seconds = Math.floor((timeDiff / 1000) % 60);
-  const minutes = Math.floor((timeDiff / (1000 * 60)) % 60);
-  const hours = Math.floor((timeDiff / (1000 * 60 * 60)) % 24);
-  const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-  return `${days}d ${hours}h ${minutes}m ${seconds}s`;
-}
-
 // Main function to handle the process
 async function main() {
   try {
@@ -76,17 +56,8 @@ async function main() {
     document.getElementById('sunrise').textContent = formatTime(sunriseTimeLocal);
     document.getElementById('sunset').textContent = formatTime(sunsetTimeLocal);
 
-    // Step 5: Get the next ISS pass times
-    const issPassTimes = await getNextISSPassTimes(latitude, longitude);
-    const nextPassTime = issPassTimes.passes[0].startUTC; // Assuming the first pass time
-
-    // Step 6: Calculate and display ISS pass time countdown
-    const countdown = calculateCountdown(nextPassTime);
-    document.getElementById('iss-countdown').textContent = countdown;
-
-    // Log the fetched weather data and ISS pass times
+    // Log the fetched weather data
     console.log('Weather Data:', weatherData);
-    console.log('ISS Pass Times:', issPassTimes);
   } catch (error) {
     console.error('Error:', error);
   }
