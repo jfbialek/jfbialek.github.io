@@ -1,0 +1,64 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #2E4D2C;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.counter-container, .countdown-container {
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #3B6F3A;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  width: 90%;
+  max-width: 600px;
+}
+
+h1, h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #5A9F52;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 5px;
+  margin: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #4C8B43;
+}
+
+#incrementButton {
+  padding: 20px 40px;
+  font-size: 1.5em;
+}
+
+.display p {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.countdown-controls input {
+  width: 2em;
+  text-align: center;
+  font-size: 1.2em;
+}

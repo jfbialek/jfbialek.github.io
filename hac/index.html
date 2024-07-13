@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hourly Average Counter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="counter-container">
+            <h2>Hourly Average Counter</h2>
+            <div class="timer-controls">
+                <button id="startButton">Start Timer</button>
+                <button id="stopButton">Stop Timer</button>
+            </div>
+            <div class="counter-controls">
+                <button id="incrementButton">Increment Counter</button>
+            </div>
+            <div class="display">
+                <p>Counts: <span id="count">0</span></p>
+                <p>Elapsed Time: <span id="elapsedTime">00:00:00</span> hours</p>
+                <p>Average per Hour: <span id="average">0.00</span></p>
+            </div>
+        </div>
+        <div class="countdown-container">
+            <h2>Countdown Timer</h2>
+            <div class="countdown-controls">
+                <input type="text" id="minutes" value="28" maxlength="2"> :
+                <input type="text" id="seconds" value="42" maxlength="2">
+                <button id="countdownStartButton">Start Countdown</button>
+                <button id="countdownStopButton">Stop Countdown</button>
+                <button id="countdownResetButton">Reset Countdown</button>
+                <p>Countdown: <span id="countdownDisplay">28:42</span></p>
+            </div>
+        </div>
+    </div>
+    <audio id="alertSound" src="alert.wav"></audio>
+    <script src="script.js"></script>
+</body>
+</html>
