@@ -46,7 +46,7 @@ function search(x) {
             url = elem.value ? "https://www.flightradar24.com/" + elem.value : "https://www.flightradar24.com/";
             break;
         case 11:
-            url = elem.value ? "https://www.nytimes.com/crosswords/archive" + elem.value : "https://www.nytimes.com/crosswords/archive";
+            url = elem.value ? "https://chatgpt.com/" + elem.value : "https://chatgpt.com/";
             break;
         case 12:
             url = elem.value ? "https://en.wikipedia.org/wiki/" + elem.value + "#Climate" : "https://www.wunderground.com/wundermap";
@@ -82,26 +82,55 @@ document.addEventListener('keydown', (event) => {
 });
 
 function handleWberClick(event) {
-    console.log("Clicked WBER icon - opening audio stream in a popup");
+    console.log("Clicked WBER icon - playing audio stream in the current window");
 
     // URL of the audio stream
     const audioUrl = 'https://radio.monroe.edu/wber.mp3';
 
-    // Options for the popup window
-    const popupWidth = 400;
-    const popupHeight = 200;
-    const left = (window.screen.width - popupWidth) / 2;
-    const top = (window.screen.height - popupHeight) / 2;
-    const popupOptions = `width=${popupWidth},height=${popupHeight},left=${left},top=${top}`;
+    // Check if the audio element already exists
+    let audioElement = document.getElementById('wber-audio');
+    if (!audioElement) {
+        // Create a container div for centering the audio player
+        const container = document.createElement('div');
+        container.id = 'wber-audio-container';
+        container.style.position = 'fixed';
+        container.style.top = '620px';  // Distance from the top of the screen
+        container.style.left = '50%';
+        container.style.transform = 'translateX(-50%)';
+        container.style.display = 'flex';
+        container.style.justifyContent = 'center';
+        container.style.alignItems = 'center';
+        container.style.backgroundColor = '#f0f0f0';
+        container.style.padding = '20px';
+        container.style.borderRadius = '10px';
+        container.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.1)';
+        container.style.width = '320px';  // Set a fixed width for the container
 
-    // Open the popup window with the audio stream
-    const audioPopup = window.open(audioUrl, 'WBER Audio Stream', popupOptions);
+        // Create an audio element and set its attributes
+        audioElement = document.createElement('audio');
+        audioElement.id = 'wber-audio';
+        audioElement.src = audioUrl;
+        audioElement.controls = true;
+        audioElement.autoplay = true;
+        audioElement.style.width = '100%';
 
-    // Check if popup was blocked
-    if (!audioPopup || audioPopup.closed || typeof audioPopup.closed === 'undefined') {
-        alert('Popup blocked! Please allow popups for this site to listen to WBER.');
+        // Insert the audio element into the container
+        container.appendChild(audioElement);
+
+        // Insert the container into the body
+        document.body.appendChild(container);
     }
+
+    // Set the volume to 10%
+    audioElement.volume = 0.10;
+
+    // Try to play the audio
+    audioElement.play().catch(error => {
+        console.log('Autoplay was prevented:', error);
+        alert('Autoplay was prevented by the browser. Please click play to start the audio.');
+    });
 }
+
 
 function handleNytClick(event) {
     const nytImg = event.currentTarget;
