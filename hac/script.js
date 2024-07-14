@@ -2,7 +2,6 @@ let startTime;
 let elapsedTime = 0;
 let count = 0;
 let timerInterval;
-
 let countdownInterval;
 const defaultMinutes = 28;
 const defaultSeconds = 42;
@@ -18,6 +17,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
     document.getElementById('countdownResetButton').addEventListener('click', resetCountdown);
 
     resetCountdown(); // Initialize countdown display
+
+    // Handle page visibility change
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'hidden') {
+            // Page is hidden, stop timers
+            stopTimer();
+            stopCountdown();
+        } else {
+            // Page is visible, restart timers if they were running
+            if (timerInterval) startTimer();
+            if (countdownInterval) startCountdown();
+        }
+    });
 });
 
 function startTimer() {
@@ -41,6 +53,7 @@ function updateTime() {
     const minutes = String(elapsed.getUTCMinutes()).padStart(2, '0');
     const seconds = String(elapsed.getUTCSeconds()).padStart(2, '0');
     document.getElementById('elapsedTime').innerText = `${hours}:${minutes}:${seconds}`;
+    updateAverage();
 }
 
 function incrementCounter() {
@@ -52,7 +65,7 @@ function incrementCounter() {
 function updateAverage() {
     const elapsedHours = elapsedTime / (1000 * 60 * 60);
     const average = elapsedHours ? Math.round(count / elapsedHours) : 0;
-    document.getElementById('average').innerText = average;
+    document.getElementById('average').innerText = average.toFixed(2);
 }
 
 function startCountdown() {
