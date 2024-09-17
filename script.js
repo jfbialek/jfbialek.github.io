@@ -40,7 +40,7 @@ function search(x) {
             url = elem.value ? "https://thepiratebay0.org/s/?page=0&orderby=0&q=" + elem.value : "https://thepiratebay0.org/";
             break;
         case 9:
-            url = elem.value ? "https://www.goodreads.com/search?q=" + elem.value : "https://www.goodreads.com/";
+            url = elem.value ? "https://app.thestorygraph.com/browse?search_term=" + elem.value : "https://app.thestorygraph.com/";
             break;
         case 10:
             url = elem.value ? "https://www.flightradar24.com/" + elem.value : "https://www.flightradar24.com/";
