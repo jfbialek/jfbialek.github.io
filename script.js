@@ -31,7 +31,7 @@ function search(x) {
             url = elem.value ? "https://youtube.com/search?q=" + elem.value : "https://www.youtube.com/feed/subscriptions";
             break;
         case 6:
-            url = elem.value ? "https://www.google.com/search?q=" + elem.value + "&tbm=nws&source=lnt&tbs=qdr:d" : "https://www.inoreader.com/all_articles";
+            url = elem.value ? "https://varioustimes.ashbrookedu.com" + elem.value : "https://varioustimes.ashbrookedu.com";
             break;
         case 7:
             url = elem.value ? "https://en.wiktionary.org/wiki/Special:Search?search=" + elem.value : "https://en.wiktionary.org/wiki/Wiktionary:Main_Page";
@@ -46,16 +46,19 @@ function search(x) {
             url = elem.value ? "https://www.flightradar24.com/" + elem.value : "https://www.flightradar24.com/";
             break;
         case 11:
-            url = elem.value ? "https://chatgpt.com/" + elem.value : "https://chatgpt.com/";
+            url = "https://chatgpt.com/";
             break;
         case 12:
-            url = elem.value ? "https://en.wikipedia.org/wiki/" + elem.value + "#Climate" : "https://www.wunderground.com/wundermap";
+            url = "https://claude.ai/new";
             break;
         case 13:
             url = "https://libbyapp.com/";
             break;
+        case 14:
+            url = "https://www.windy.com/";
+            break;
         case 15:
-            url = elem.value ? "https://www.reddit.com/search/?q=" + elem.value : "https://reddit.com";
+            url = "https://gemini.google.com/";
             break;
         case 16:
             url = elem.value ? "https://www.geocaching.com/play/results/?st=" + elem.value : "https://www.geocaching.com";
@@ -64,7 +67,7 @@ function search(x) {
             url = "https://www.nytimes.com/games/wordle/index.html";
             break;
         case 18:
-            url = "https://www.facebook.com/";
+            url = elem.value ? "https://en.wikipedia.org/wiki/" + elem.value + "#Climate" : "https://www.wunderground.com/wundermap";
             break;
         case 20:
             url = elem.value ? "https://wordswithfriends.com/" + elem.value : "https://wordswithfriends.com/";
