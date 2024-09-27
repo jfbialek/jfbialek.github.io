@@ -67,7 +67,7 @@ function search(x) {
             url = "https://www.nytimes.com/games/wordle/index.html";
             break;
         case 18:
-            url = elem.value ? "https://en.wikipedia.org/wiki/" + elem.value + "#Climate" : "https://www.wunderground.com/wundermap";
+            url = "https://www.wsj.com/";
             break;
         case 20:
             url = elem.value ? "https://wordswithfriends.com/" + elem.value : "https://wordswithfriends.com/";
