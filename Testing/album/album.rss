@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0"
+     xmlns:media="http://search.yahoo.com/mrss/"
+     xmlns:jalbum="http://jalbum.net/jalbumrss">
+    <channel>
+        <title>Testing</title>
+   	<link>.</link>
+        <generator>jAlbum 35.1</generator>
+   		<description>One two three</description>
+        <jalbum:absolutePath></jalbum:absolutePath>
+        <item>
+            <title>IMG_8468</title>
+            <link>slides/IMG_8468.jpeg</link>
+            <pubDate>Sat, 28 Sep 2024 18:00:07 +0300</pubDate>
+            <description>This is what we call an old Russian bunker.</description>
+            <media:description type="html">This is what we call an old Russian bunker.</media:description>
+            <media:thumbnail url="thumbs/IMG_8468.jpeg" width="267" height="200"/>
+            <media:content type="image/jpeg" url="slides/IMG_8468.jpeg" width="1200" height="900"/>
+            <jalbum:exif originalDate="Thu, 26 Sep 2024 17:37:10 +0300" cameraMake="Apple" cameraModel="iPhone 11 Pro"/>
+            <guid isPermaLink="false">slides/IMG_8468.jpeg</guid>
+        </item>
+        <item>
+            <title>IMG_8470</title>
+            <link>slides/IMG_8470.jpeg</link>
+            <pubDate>Sat, 28 Sep 2024 18:00:07 +0300</pubDate>
+            <description>Here is what it looks like inside.  I&apos;m not happy in places like this.</description>
+            <media:description type="html">Here is what it looks like inside.  I&apos;m not happy in places like this.</media:description>
+            <media:thumbnail url="thumbs/IMG_8470.jpeg" width="150" height="200"/>
+            <media:content type="image/jpeg" url="slides/IMG_8470.jpeg" width="675" height="900"/>
+            <jalbum:exif originalDate="Thu, 26 Sep 2024 17:40:19 +0300" cameraMake="Apple" cameraModel="iPhone 11 Pro"/>
+            <guid isPermaLink="false">slides/IMG_8470.jpeg</guid>
+        </item>
+        <item>
+            <title>IMG_8462</title>
+            <link>slides/IMG_8462.jpeg</link>
+            <pubDate>Sat, 28 Sep 2024 18:00:07 +0300</pubDate>
+            <description></description>
+            <media:description type="html"></media:description>
+            <media:thumbnail url="thumbs/IMG_8462.jpeg" width="267" height="200"/>
+            <media:content type="image/jpeg" url="slides/IMG_8462.jpeg" width="1200" height="900"/>
+            <jalbum:exif originalDate="Thu, 26 Sep 2024 13:12:09 +0300" cameraMake="Apple" cameraModel="iPhone 11 Pro"/>
+            <guid isPermaLink="false">slides/IMG_8462.jpeg</guid>
+        </item>
+        <item>
+            <title>IMG_8469</title>
+            <link>slides/IMG_8469.jpeg</link>
+            <pubDate>Sat, 28 Sep 2024 18:00:07 +0300</pubDate>
+            <description></description>
+            <media:description type="html"></media:description>
+            <media:thumbnail url="thumbs/IMG_8469.jpeg" width="267" height="200"/>
+            <media:content type="image/jpeg" url="slides/IMG_8469.jpeg" width="1200" height="900"/>
+            <jalbum:exif originalDate="Thu, 26 Sep 2024 17:39:59 +0300" cameraMake="Apple" cameraModel="iPhone 11 Pro"/>
+            <guid isPermaLink="false">slides/IMG_8469.jpeg</guid>
+        </item>
+        <item>
+            <title>IMG_8471</title>
+            <link>slides/IMG_8471.jpeg</link>
+            <pubDate>Sat, 28 Sep 2024 18:00:07 +0300</pubDate>
+            <description></description>
+            <media:description type="html"></media:description>
+            <media:thumbnail url="thumbs/IMG_8471.jpeg" width="267" height="200"/>
+            <media:content type="image/jpeg" url="slides/IMG_8471.jpeg" width="1200" height="900"/>
+            <jalbum:exif originalDate="Thu, 26 Sep 2024 17:45:02 +0300" cameraMake="Apple" cameraModel="iPhone 11 Pro"/>
+            <guid isPermaLink="false">slides/IMG_8471.jpeg</guid>
+        </item>
+        <item>
+            <title>IMG_8472</title>
+            <link>slides/IMG_8472.jpeg</link>
+            <pubDate>Sat, 28 Sep 2024 18:00:07 +0300</pubDate>
+            <description></description>
+            <media:description type="html"></media:description>
+            <media:thumbnail url="thumbs/IMG_8472.jpeg" width="267" height="200"/>
+            <media:content type="image/jpeg" url="slides/IMG_8472.jpeg" width="1200" height="900"/>
+            <jalbum:exif originalDate="Thu, 26 Sep 2024 17:57:46 +0300" cameraMake="Apple" cameraModel="iPhone 11 Pro"/>
+            <guid isPermaLink="false">slides/IMG_8472.jpeg</guid>
+        </item>
+        <item>
+            <title>IMG_8473</title>
+            <link>slides/IMG_8473.jpeg</link>
+            <pubDate>Sat, 28 Sep 2024 18:00:07 +0300</pubDate>
+            <description></description>
+            <media:description type="html"></media:description>
+            <media:thumbnail url="thumbs/IMG_8473.jpeg" width="267" height="200"/>
+            <media:content type="image/jpeg" url="slides/IMG_8473.jpeg" width="1200" height="900"/>
+            <jalbum:exif originalDate="Thu, 26 Sep 2024 18:11:56 +0300" cameraMake="Apple" cameraModel="iPhone 11 Pro"/>
+            <guid isPermaLink="false">slides/IMG_8473.jpeg</guid>
+        </item>
+        <item>
+            <title>IMG_8474</title>
+            <link>slides/IMG_8474.jpeg</link>
+            <pubDate>Sat, 28 Sep 2024 18:00:07 +0300</pubDate>
+            <description></description>
+            <media:description type="html"></media:description>
+            <media:thumbnail url="thumbs/IMG_8474.jpeg" width="150" height="200"/>
+            <media:content type="image/jpeg" url="slides/IMG_8474.jpeg" width="675" height="900"/>
+            <jalbum:exif originalDate="Thu, 26 Sep 2024 18:29:17 +0300" cameraMake="Apple" cameraModel="iPhone 11 Pro"/>
+            <guid isPermaLink="false">slides/IMG_8474.jpeg</guid>
+        </item>
+        <item>
+            <title>IMG_8475</title>
+            <link>slides/IMG_8475.jpeg</link>
+            <pubDate>Sat, 28 Sep 2024 18:00:07 +0300</pubDate>
+            <description></description>
+            <media:description type="html"></media:description>
+            <media:thumbnail url="thumbs/IMG_8475.jpeg" width="267" height="200"/>
+            <media:content type="image/jpeg" url="slides/IMG_8475.jpeg" width="1200" height="900"/>
+            <jalbum:exif originalDate="Thu, 26 Sep 2024 18:32:39 +0300" cameraMake="Apple" cameraModel="iPhone 11 Pro"/>
+            <guid isPermaLink="false">slides/IMG_8475.jpeg</guid>
+        </item>
+        <item>
+            <title>IMG_8476</title>
+            <link>slides/IMG_8476.jpeg</link>
+            <pubDate>Sat, 28 Sep 2024 18:00:07 +0300</pubDate>
+            <description></description>
+            <media:description type="html"></media:description>
+            <media:thumbnail url="thumbs/IMG_8476.jpeg" width="150" height="200"/>
+            <media:content type="image/jpeg" url="slides/IMG_8476.jpeg" width="675" height="900"/>
+            <jalbum:exif originalDate="Thu, 26 Sep 2024 18:40:59 +0300" cameraMake="Apple" cameraModel="iPhone 11 Pro"/>
+            <guid isPermaLink="false">slides/IMG_8476.jpeg</guid>
+        </item>
+    </channel>
+</rss>
