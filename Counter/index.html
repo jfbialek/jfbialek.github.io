@@ -21,6 +21,14 @@
                 <span>:</span>
                 <input type="number" id="secondsInput" min="0" max="59" value="28">
             </div>
+            <div class="slider-group">
+                <label for="alarmToggle">Loud</label>
+                <label class="switch">
+                    <input type="checkbox" id="alarmToggle">
+                    <span class="slider round"></span>
+                </label>
+                <label for="alarmToggle">Soft</label>
+            </div>
             <div class="button-group">
                 <button id="startButton">Start</button>
                 <button id="stopButton">Stop</button>
@@ -29,6 +37,7 @@
         </div>
     </div>
     <audio id="alarmSound" src="alarm.wav"></audio>
+    <audio id="softSound" src="soft.wav"></audio>
     <script src="script.js"></script>
 </body>
 </html>

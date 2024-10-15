@@ -60,8 +60,14 @@ function updateCountdown() {
 
     if (remaining === 0) {
         stopCountdown();
-        document.getElementById('alarmSound').play();
+        playSelectedAlarm();
     }
+}
+
+function playSelectedAlarm() {
+    const isSoftAlarm = document.getElementById('alarmToggle').checked;
+    const soundToPlay = isSoftAlarm ? document.getElementById('softSound') : document.getElementById('alarmSound');
+    soundToPlay.play();
 }
 
 document.getElementById('startButton').addEventListener('click', startCountdown);
@@ -76,7 +82,7 @@ if (window.Worker) {
         } else if (e.data.action === 'updateCountdown') {
             document.getElementById('remainingTime').textContent = e.data.time;
             if (e.data.finished) {
-                document.getElementById('alarmSound').play();
+                playSelectedAlarm();
             }
         }
     };
