@@ -34,7 +34,7 @@ function search(x) {
             url = elem.value ? "https://en.wiktionary.org/wiki/Special:Search?search=" + elem.value : "https://en.wiktionary.org/wiki/Wiktionary:Main_Page";
             break;
         case 8:
-            url = elem.value ? "https://thepiratebay0.org/s/?page=0&orderby=0&q=" + elem.value : "https://thepiratebay0.org/";
+            url = elem.value ? "https://search.brave.com/search?q=" + elem.value : "https://search.brave.com/";
             break;
         case 9:
             url = elem.value ? "https://app.thestorygraph.com/browse?search_term=" + elem.value : "https://app.thestorygraph.com/";
