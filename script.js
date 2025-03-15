@@ -75,7 +75,7 @@ function search(x) {
 
 document.addEventListener('keydown', (event) => {
     if (event.key === "Enter" || event.code === "Enter") {
-        search(1);
+        search(8);
     } else if (event.key === "Tab" || event.code === "Tab") {
         search(2);
     }
