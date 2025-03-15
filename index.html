@@ -72,15 +72,27 @@
     <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript" src="data.js"></script>
     <script>
-        window.onload = function() {
-            // Check if this is the first load (to prevent an infinite loop)
-            if (!sessionStorage.getItem("reloaded")) {
-                sessionStorage.setItem("reloaded", "true"); // Mark that we've reloaded
-                location.reload(); // Refresh the page
-            } else {
-                sessionStorage.removeItem("reloaded"); // Clear the flag so it doesn't persist
-                document.getElementById("input").focus(); // Focus input after reload
+        function focusInput() {
+            let input = document.getElementById("input");
+    
+            if (document.activeElement !== input) {
+                input.focus();
             }
+        }
+    
+        window.onload = function() {
+            setTimeout(focusInput, 100); // Try focusing after a small delay
+    
+            // Keep trying every 200ms for up to 5 seconds
+            let attempts = 0;
+            let interval = setInterval(() => {
+                if (document.activeElement === document.getElementById("input") || attempts > 25) {
+                    clearInterval(interval); // Stop if successful or after 5 seconds
+                } else {
+                    focusInput();
+                }
+                attempts++;
+            }, 200);
         };
     </script>
 </body>
