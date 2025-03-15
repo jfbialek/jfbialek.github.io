@@ -72,26 +72,15 @@
     <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript" src="data.js"></script>
     <script>
-        function focusSearch() {
-            let input = document.getElementById("input");
-            if (document.activeElement !== input) {
-                input.focus();
-            }
-        }
-    
         window.onload = function() {
-            setTimeout(focusSearch, 100); // Initial attempt after 100ms
-    
-            // Try again every 200ms for 2 seconds to fight browser override
-            let attempts = 0;
-            let focusInterval = setInterval(() => {
-                if (document.activeElement === document.getElementById("input") || attempts > 10) {
-                    clearInterval(focusInterval); // Stop when successful
-                } else {
-                    focusSearch();
-                }
-                attempts++;
-            }, 200);
+            // Check if this is the first load (to prevent an infinite loop)
+            if (!sessionStorage.getItem("reloaded")) {
+                sessionStorage.setItem("reloaded", "true"); // Mark that we've reloaded
+                location.reload(); // Refresh the page
+            } else {
+                sessionStorage.removeItem("reloaded"); // Clear the flag so it doesn't persist
+                document.getElementById("input").focus(); // Focus input after reload
+            }
         };
     </script>
 </body>
