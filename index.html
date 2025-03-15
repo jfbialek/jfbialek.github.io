@@ -72,10 +72,26 @@
     <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript" src="data.js"></script>
     <script>
+        function focusSearch() {
+            let input = document.getElementById("input");
+            if (document.activeElement !== input) {
+                input.focus();
+            }
+        }
+    
         window.onload = function() {
-            setTimeout(function() {
-                document.getElementById("input").focus();
-            }, 100); // 100ms delay
+            setTimeout(focusSearch, 100); // Initial attempt after 100ms
+    
+            // Try again every 200ms for 2 seconds to fight browser override
+            let attempts = 0;
+            let focusInterval = setInterval(() => {
+                if (document.activeElement === document.getElementById("input") || attempts > 10) {
+                    clearInterval(focusInterval); // Stop when successful
+                } else {
+                    focusSearch();
+                }
+                attempts++;
+            }, 200);
         };
     </script>
 </body>
