@@ -3,9 +3,6 @@ window.onload = function () {
 
     const wberImg = document.getElementById('wber.png');
     wberImg.addEventListener('click', handleWberClick);
-
-    const nytImg = document.getElementById('nyt.png');
-    nytImg.addEventListener('click', handleNytClick);
 };
 
 function search(x) {
@@ -132,26 +129,4 @@ function handleWberClick(event) {
         console.log('Autoplay was prevented:', error);
         alert('Autoplay was prevented by the browser. Please click play to start the audio.');
     });
-}
-
-
-function handleNytClick(event) {
-    const nytImg = event.currentTarget;
-    const rect = nytImg.getBoundingClientRect();
-    const clickY = event.clientY - rect.top;
-    const clickLocation = clickY >= rect.height / 2 ? 'bottom' : 'top';
-
-    let url;
-    if (clickLocation === 'top') {
-        console.log("Clicked top half - Go to WSJ Homepage");
-        url = "https://www.wsj.com/";
-    } else {
-        console.log("Clicked bottom half - Go to NYT Front Page");
-        const currentDate = new Date();
-        const currentMonth = String(currentDate.getMonth() + 1).padStart(2, '0');
-        const currentDay = String(currentDate.getDate()).padStart(2, '0');
-        const currentYear = currentDate.getFullYear();
-        url = "https://static01.nyt.com/images/" + currentYear + "/" + currentMonth + "/" + currentDay + "/nytfrontpage/scan.pdf";
-    }
-    window.open(url, '_self');
 }
