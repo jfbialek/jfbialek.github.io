@@ -73,7 +73,9 @@
     <script type="text/javascript" src="data.js"></script>
     <script>
         window.onload = function() {
-            document.getElementById("input").focus();
+            setTimeout(function() {
+                document.getElementById("input").focus();
+            }, 100); // 100ms delay
         };
     </script>
 </body>
