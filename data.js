@@ -68,35 +68,39 @@ main();
 
 // Function to fetch the now-playing data
 async function getNowPlaying() {
-  const response = await fetch('https://widgets.spinitron.com/widget/now-playing?callback=_spinitron02549218178983923171994730400&station=wber&num=1&time=0&nolinks=1');
-  const text = await response.text();
+  try {
+      const response = await fetch('https://widgets.spinitron.com/widget/now-playing?callback=_spinitron02549218178983923171994730400&station=wber&num=1&time=0&nolinks=1');
+      const text = await response.text();
 
-  // Extract the HTML string from the JSONP response
-  const jsonpData = text.match(/_spinitron02549218178983923171994730400\("([\s\S]*)"\)/)[1];
+      // Extract the HTML string from the JSONP response
+      const jsonpData = text.match(/_spinitron02549218178983923171994730400\("([\s\S]*)"\)/)[1];
 
-  // Remove the escaped characters
-  const cleanHtml = jsonpData.replace(/\\n/g, '').replace(/\\"/g, '"').replace(/\\t/g, '').replace(/\\/g, '');
+      // Remove escaped characters
+      const cleanHtml = jsonpData.replace(/\\n/g, '').replace(/\\"/g, '"').replace(/\\t/g, '').replace(/\\/g, '');
 
-  // Parse the HTML string
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(cleanHtml, 'text/html');
+      // Parse the HTML string
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(cleanHtml, 'text/html');
 
-  // Extract the song title and artist name using robust querying
-  const songTitleElement = doc.querySelector('.songpart b');
-  const artistNameElement = doc.querySelector('.artistpart b');
+      // Extract the song title and artist name
+      const songTitleElement = doc.querySelector('.songpart b');
+      const artistNameElement = doc.querySelector('.artistpart b');
 
-  if (songTitleElement && artistNameElement) {
-    const songTitle = songTitleElement.textContent;
-    const artistName = artistNameElement.textContent;
+      if (songTitleElement && artistNameElement) {
+          const songTitle = songTitleElement.textContent;
+          const artistName = artistNameElement.textContent;
 
-    // Log the extracted information
-    console.log('Song title:', songTitle);
-    console.log('Artist name:', artistName);
+          // Log the extracted info
+          console.log('Updated Song:', songTitle);
+          console.log('Updated Artist:', artistName);
 
-    // Update the data bar with the current song playing
-    document.getElementById('current-song').textContent = `${songTitle} by ${artistName}`;
-  } else {
-    console.log('Could not find song title or artist name in the response.');
+          // Update the UI
+          document.getElementById('current-song').textContent = `${songTitle} by ${artistName}`;
+      } else {
+          console.log('Could not find updated song info.');
+      }
+  } catch (error) {
+      console.error('Error fetching updated song info:', error);
   }
 }
 

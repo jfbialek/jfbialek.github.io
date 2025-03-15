@@ -35,7 +35,7 @@
         </span>
         <span class="data-item">
             <img src="images/music.svg" alt="Music Icon">
-            <span id="current-song">--</span>
+            <span id="current-song" onclick="getNowPlaying()" style="cursor: pointer; text-decoration: none;">--</span>
         </span>
     </div>    
     <img alt="Bialekoogle - Search like a Bialek" class="banner" src="images/bialekoogle.png">
@@ -71,29 +71,5 @@
     </div>
     <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript" src="data.js"></script>
-    <script>
-        function focusInput() {
-            let input = document.getElementById("input");
-    
-            if (document.activeElement !== input) {
-                input.focus();
-            }
-        }
-    
-        window.onload = function() {
-            setTimeout(focusInput, 100); // Try focusing after a small delay
-    
-            // Keep trying every 200ms for up to 5 seconds
-            let attempts = 0;
-            let interval = setInterval(() => {
-                if (document.activeElement === document.getElementById("input") || attempts > 25) {
-                    clearInterval(interval); // Stop if successful or after 5 seconds
-                } else {
-                    focusInput();
-                }
-                attempts++;
-            }, 200);
-        };
-    </script>
 </body>
 </html>
