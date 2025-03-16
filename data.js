@@ -48,9 +48,12 @@ async function main() {
     const weatherData = await getWeather(latitude, longitude);
     const { temperature, relativeHumidity, windSpeed, sunriseTimeLocal, sunsetTimeLocal } = weatherData;
 
+    const fahrenheit = Math.round((temperature * 9/5) + 32);
+
+    
     // Step 4: Update the data bar with location, temperature, humidity, wind speed, and sunrise/sunset
     document.getElementById('location').textContent = city;
-    document.getElementById('temperature').textContent = `${temperature}°C`;
+    document.getElementById('temperature').textContent = `${temperature}ºC / ${fahrenheit}ºF`;
     document.getElementById('humidity').textContent = `${relativeHumidity}%`;
     document.getElementById('wind-speed').textContent = `${windSpeed} km/h`;
     document.getElementById('sunrise').textContent = formatTime(sunriseTimeLocal);

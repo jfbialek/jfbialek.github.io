@@ -55,7 +55,7 @@ function search(x) {
             url = "https://www.windy.com/";
             break;
         case 15:
-            url = "https://gemini.google.com/";
+            url = "https://radio.garden";
             break;
         case 16:
             url = elem.value ? "https://www.geocaching.com/play/results/?st=" + elem.value : "https://www.geocaching.com";
