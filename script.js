@@ -34,7 +34,7 @@ function search(x) {
             url = elem.value ? "https://en.wiktionary.org/wiki/Special:Search?search=" + elem.value : "https://en.wiktionary.org/wiki/Wiktionary:Main_Page";
             break;
         case 8:
-            url = elem.value ? "https://duckduckgo.com/?q=" + elem.value : "https://duckduckgo.com/";
+            url = elem.value ? "https://gocharting.com/terminal/chart/kp2J9Bmam" : "https://gocharting.com/terminal/chart/kp2J9Bmam";
             break;
         case 9:
             url = elem.value ? "https://app.thestorygraph.com/browse?search_term=" + elem.value : "https://app.thestorygraph.com/";
@@ -79,7 +79,7 @@ document.addEventListener('keydown', (event) => {
     } else if (event.key === "Tab" || event.code === "Tab") {
         search(2);
     } else if (event.key === "\\" || event.code === "Backslash") {
-        search(8);
+        search(0);
     }
 });
 
