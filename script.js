@@ -67,7 +67,7 @@ function search(x) {
             url = "https://www.wsj.com/";
             break;
         case 20:
-            url = elem.value ? "https://wordswithfriends.com/" + elem.value : "https://wordswithfriends.com/";
+            url = elem.value ? "https://www.economist.com" + elem.value : "https://www.economist.com";
             break;
     }
     window.open(url, '_self');
