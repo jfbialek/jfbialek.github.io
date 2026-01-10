@@ -46,7 +46,7 @@ function search(x) {
             url = "https://chatgpt.com/";
             break;
         case 12:
-            url = "https://claude.ai/new";
+            url = "https://gemini.google.com/app";
             break;
         case 13:
             url = "https://libbyapp.com/";
