@@ -1,19 +1,29 @@
-// --- UTILITY FUNCTIONS ---
+// --- GEOLOCATION & WEATHER ---
+
+// Step 1: Get the client's IP address
 async function getClientIp() {
   const response = await fetch('https://api.ipify.org?format=json');
   const data = await response.json();
   return data.ip;
 }
 
-async function getLatLon(ip) {
-  const response = await fetch(`https://ipapi.co/${ip}/json/`);
+// Step 2: Updated Geolocation (Fixed CORS issue by switching to freeipapi.com)
+async function getLatLon() {
+  // We don't even need the IP for this one; it detects it automatically
+  const response = await fetch('https://freeipapi.com/api/json');
   const data = await response.json();
-  return { latitude: data.latitude, longitude: data.longitude, city: data.city };
+  return { 
+    latitude: data.latitude, 
+    longitude: data.longitude, 
+    city: data.cityName 
+  };
 }
 
+// Step 3: Fetch weather data
 async function getWeather(lat, lon) {
   const apiKey = 'e1f10a1e78da46f5b10a1e78da96f525';
   const response = await fetch(`https://api.weather.com/v3/wx/observations/current?apiKey=${apiKey}&geocode=${lat},${lon}&language=en-US&units=m&format=json`);
+  if (!response.ok) throw new Error('Weather API limit reached');
   const data = await response.json();
   return data;
 }
@@ -25,9 +35,9 @@ function formatTime(timeString) {
   return `${hours}:${minutes}`;
 }
 
-// --- RADIO FUNCTIONS ---
+// --- RADIO LOGIC ---
 
-// Function 1: WBER (Your original logic)
+// WBER Logic (Spinitron Scrape)
 async function getWberPlaying() {
   try {
       document.getElementById('current-song').textContent = "Loading WBER...";
@@ -50,7 +60,7 @@ async function getWberPlaying() {
   }
 }
 
-// Function 2: FM4 (The new logic)
+// FM4 Logic (ORF JSON API)
 async function getFm4Playing() {
   try {
     document.getElementById('current-song').textContent = "Loading FM4...";
@@ -68,27 +78,33 @@ async function getFm4Playing() {
   }
 }
 
-// --- INITIALIZATION ---
+// --- MAIN INITIALIZATION ---
 
 async function main() {
   try {
-    const ip = await getClientIp();
-    const { latitude, longitude, city } = await getLatLon(ip);
+    // Get Location
+    const { latitude, longitude, city } = await getLatLon();
+    document.getElementById('location').textContent = city;
+
+    // Get Weather
     const weatherData = await getWeather(latitude, longitude);
     const { temperature, relativeHumidity, windSpeed, sunriseTimeLocal, sunsetTimeLocal } = weatherData;
     const fahrenheit = Math.round((temperature * 9/5) + 32);
 
-    document.getElementById('location').textContent = city;
+    // Update UI
     document.getElementById('temperature').textContent = `${temperature}ºC / ${fahrenheit}ºF`;
     document.getElementById('humidity').textContent = `${relativeHumidity}%`;
     document.getElementById('wind-speed').textContent = `${windSpeed} km/h`;
     document.getElementById('sunrise').textContent = formatTime(sunriseTimeLocal);
     document.getElementById('sunset').textContent = formatTime(sunsetTimeLocal);
+
   } catch (error) {
-    console.error('Main Error:', error);
+    console.error('Main Data Error:', error);
+    // Setting defaults so the UI doesn't look broken
+    document.getElementById('location').textContent = "Location Error";
   }
 }
 
-// Run weather logic and default to WBER on load
+// Initialize
 main();
 getWberPlaying();
