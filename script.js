@@ -1,24 +1,28 @@
 window.onload = function () {
-    // Keep your existing focus logic
-    const inputElement = document.getElementById("input");
-    if (inputElement) inputElement.focus();
+    // Keep your input focus
+    const inputField = document.getElementById("input");
+    if (inputField) inputField.focus();
 
-    // The new logic for the dual-station icon
+    // Look for the NEW ID
     const comboImg = document.getElementById('radio-combo');
-    if (comboImg) {
-        comboImg.addEventListener('click', function(event) {
-            // 'this.clientWidth' handles your 110px scaling automatically
-            const size = this.clientWidth; 
-            const x = event.offsetX;
-            const y = event.offsetY;
 
-            // Split logic: Top-Left triangle vs Bottom-Right triangle
+    if (comboImg) {
+        console.log("Found the radio icon, attaching listener...");
+        comboImg.addEventListener('click', function(event) {
+            const rect = this.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            const size = this.clientWidth; 
+
             if (x + y < size) {
                 handleRadioClick('WBER', 'https://radio.monroe.edu/wber.mp3');
             } else {
                 handleRadioClick('FM4', 'https://orf-live.ors-shoutcast.at/fm4-q2a');
             }
         });
+    } else {
+        // This will print in the Safari console if there is still an ID mismatch
+        console.error("Could not find element with ID 'radio-combo'. Check your HTML!");
     }
 };
 
