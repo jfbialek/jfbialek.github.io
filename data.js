@@ -7,9 +7,16 @@ async function getClientIp() {
 }
 
 async function getLatLon(ip) {
-  const response = await fetch(`https://ipapi.co/${ip}/json/`);
+  // Swapping to a different provider to bypass your current rate limit
+  const response = await fetch(`https://demo.ip-api.com/json/${ip}`);
   const data = await response.json();
-  return { latitude: data.latitude, longitude: data.longitude, city: data.city };
+  
+  // Note: different APIs use different keys (lat vs latitude)
+  return { 
+    latitude: data.lat, 
+    longitude: data.lon, 
+    city: data.city 
+  };
 }
 
 async function getWeather(lat, lon) {
