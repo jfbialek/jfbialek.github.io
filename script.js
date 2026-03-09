@@ -1,8 +1,25 @@
 window.onload = function () {
-    document.getElementById("input").focus();
+    // Keep your existing focus logic
+    const inputElement = document.getElementById("input");
+    if (inputElement) inputElement.focus();
 
-    const wberImg = document.getElementById('wber.png');
-    wberImg.addEventListener('click', handleWberClick);
+    // The new logic for the dual-station icon
+    const comboImg = document.getElementById('radio-combo');
+    if (comboImg) {
+        comboImg.addEventListener('click', function(event) {
+            // 'this.clientWidth' handles your 110px scaling automatically
+            const size = this.clientWidth; 
+            const x = event.offsetX;
+            const y = event.offsetY;
+
+            // Split logic: Top-Left triangle vs Bottom-Right triangle
+            if (x + y < size) {
+                handleRadioClick('WBER', 'https://radio.monroe.edu/wber.mp3');
+            } else {
+                handleRadioClick('FM4', 'https://orf-live.ors-shoutcast.at/fm4-q2a');
+            }
+        });
+    }
 };
 
 function search(x) {
@@ -83,52 +100,32 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-function handleWberClick(event) {
-    console.log("Clicked WBER icon - playing audio stream in the current window");
+function handleRadioClick(stationName, audioUrl) {
+    console.log(`Clicked ${stationName} - playing stream`);
 
-    // URL of the audio stream
-    const audioUrl = 'https://radio.monroe.edu/wber.mp3';
-
-    // Check if the audio element already exists
     let audioElement = document.getElementById('wber-audio');
-    if (!audioElement) {
-        // Create a container div for centering the audio player
-        const container = document.createElement('div');
-        container.id = 'wber-audio-container';
-        container.style.position = 'fixed';
-        container.style.top = '620px';  // Distance from the top of the screen
-        container.style.left = '50%';
-        container.style.transform = 'translateX(-50%)';
-        container.style.display = 'flex';
-        container.style.justifyContent = 'center';
-        container.style.alignItems = 'center';
-        container.style.backgroundColor = '#f0f0f0';
-        container.style.padding = '20px';
-        container.style.borderRadius = '10px';
-        container.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.1)';
-        container.style.width = '320px';  // Set a fixed width for the container
+    let container = document.getElementById('wber-audio-container');
 
-        // Create an audio element and set its attributes
+    if (!audioElement) {
+        container = document.createElement('div');
+        container.id = 'wber-audio-container';
+        // Your exact styling from before
+        container.style.cssText = "position:fixed; top:620px; left:50%; transform:translateX(-50%); display:flex; justify-content:center; align-items:center; background-color:#f0f0f0; padding:20px; border-radius:10px; box-shadow:0 0 10px rgba(0, 0, 0, 0.1); width:320px;";
+
         audioElement = document.createElement('audio');
         audioElement.id = 'wber-audio';
-        audioElement.src = audioUrl;
         audioElement.controls = true;
         audioElement.autoplay = true;
         audioElement.style.width = '100%';
 
-        // Insert the audio element into the container
         container.appendChild(audioElement);
-
-        // Insert the container into the body
         document.body.appendChild(container);
     }
 
-    // Set the volume to 10%
-    audioElement.volume = 0.10;
-
-    // Try to play the audio
-    audioElement.play().catch(error => {
-        console.log('Autoplay was prevented:', error);
-        alert('Autoplay was prevented by the browser. Please click play to start the audio.');
-    });
+    // This part is key: it swaps the source if you click the other half of the icon
+    if (audioElement.src !== audioUrl) {
+        audioElement.src = audioUrl;
+        audioElement.volume = 0.10; // Back to your 10% preference
+        audioElement.play().catch(error => console.log('Playback error:', error));
+    }
 }
