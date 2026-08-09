@@ -67,11 +67,7 @@ function search(x) {
             url = "https://chatgpt.com/";
             break;
         case 12:
-<<<<<<< HEAD
             url = "https://notes.ashbrookedu.com";
-=======
-            url = "https://gemini.google.com/app";
->>>>>>> f1676b89a8bea32e6b497e75ff60a9ec8dfcf9b1
             break;
         case 13:
             url = "https://libbyapp.com/";
