@@ -46,7 +46,7 @@ function search(x) {
             url = "https://chatgpt.com/";
             break;
         case 12:
-            url = "https://claude.ai/new";
+            url = "https://notes.ashbrookedu.com";
             break;
         case 13:
             url = "https://libbyapp.com/";
@@ -55,7 +55,7 @@ function search(x) {
             url = "https://www.windy.com/";
             break;
         case 15:
-            url = "https://radio.garden";
+            url = "https://ccc.ashbrookedu.com";
             break;
         case 16:
             url = elem.value ? "https://www.geocaching.com/play/results/?st=" + elem.value : "https://www.geocaching.com";

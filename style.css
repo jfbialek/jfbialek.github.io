@@ -48,6 +48,14 @@ input[type=text] {
   border: 1px solid #1a5eff;
 }
 
+.icon img.brand-tile {
+  padding: 12px;
+}
+
+.icon img.flight-tile {
+  padding: 7px;
+}
+
 .data-bar {
   background-color: #f8f9fa;
   padding: 10px 0; /* Adjust or remove this padding */
