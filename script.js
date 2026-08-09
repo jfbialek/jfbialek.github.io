@@ -1,8 +1,29 @@
 window.onload = function () {
-    document.getElementById("input").focus();
+    // Keep your input focus
+    const inputField = document.getElementById("input");
+    if (inputField) inputField.focus();
 
-    const wberImg = document.getElementById('wber.png');
-    wberImg.addEventListener('click', handleWberClick);
+    // Look for the NEW ID
+    const comboImg = document.getElementById('radio-combo');
+
+    if (comboImg) {
+        console.log("Found the radio icon, attaching listener...");
+        comboImg.addEventListener('click', function(event) {
+            const rect = this.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            const size = this.clientWidth; 
+
+            if (x + y < size) {
+                handleRadioClick('WBER', 'https://radio.monroe.edu/wber.mp3');
+            } else {
+                handleRadioClick('FM4', 'https://orf-live.ors-shoutcast.at/fm4-q2a');
+            }
+        });
+    } else {
+        // This will print in the Safari console if there is still an ID mismatch
+        console.error("Could not find element with ID 'radio-combo'. Check your HTML!");
+    }
 };
 
 function search(x) {
@@ -46,7 +67,11 @@ function search(x) {
             url = "https://chatgpt.com/";
             break;
         case 12:
+<<<<<<< HEAD
             url = "https://notes.ashbrookedu.com";
+=======
+            url = "https://gemini.google.com/app";
+>>>>>>> f1676b89a8bea32e6b497e75ff60a9ec8dfcf9b1
             break;
         case 13:
             url = "https://libbyapp.com/";
@@ -83,52 +108,32 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-function handleWberClick(event) {
-    console.log("Clicked WBER icon - playing audio stream in the current window");
+function handleRadioClick(stationName, audioUrl) {
+    console.log(`Clicked ${stationName} - playing stream`);
 
-    // URL of the audio stream
-    const audioUrl = 'https://radio.monroe.edu/wber.mp3';
-
-    // Check if the audio element already exists
     let audioElement = document.getElementById('wber-audio');
-    if (!audioElement) {
-        // Create a container div for centering the audio player
-        const container = document.createElement('div');
-        container.id = 'wber-audio-container';
-        container.style.position = 'fixed';
-        container.style.top = '620px';  // Distance from the top of the screen
-        container.style.left = '50%';
-        container.style.transform = 'translateX(-50%)';
-        container.style.display = 'flex';
-        container.style.justifyContent = 'center';
-        container.style.alignItems = 'center';
-        container.style.backgroundColor = '#f0f0f0';
-        container.style.padding = '20px';
-        container.style.borderRadius = '10px';
-        container.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.1)';
-        container.style.width = '320px';  // Set a fixed width for the container
+    let container = document.getElementById('wber-audio-container');
 
-        // Create an audio element and set its attributes
+    if (!audioElement) {
+        container = document.createElement('div');
+        container.id = 'wber-audio-container';
+        // Your exact styling from before
+        container.style.cssText = "position:fixed; top:620px; left:50%; transform:translateX(-50%); display:flex; justify-content:center; align-items:center; background-color:#f0f0f0; padding:20px; border-radius:10px; box-shadow:0 0 10px rgba(0, 0, 0, 0.1); width:320px;";
+
         audioElement = document.createElement('audio');
         audioElement.id = 'wber-audio';
-        audioElement.src = audioUrl;
         audioElement.controls = true;
         audioElement.autoplay = true;
         audioElement.style.width = '100%';
 
-        // Insert the audio element into the container
         container.appendChild(audioElement);
-
-        // Insert the container into the body
         document.body.appendChild(container);
     }
 
-    // Set the volume to 10%
-    audioElement.volume = 0.10;
-
-    // Try to play the audio
-    audioElement.play().catch(error => {
-        console.log('Autoplay was prevented:', error);
-        alert('Autoplay was prevented by the browser. Please click play to start the audio.');
-    });
+    // This part is key: it swaps the source if you click the other half of the icon
+    if (audioElement.src !== audioUrl) {
+        audioElement.src = audioUrl;
+        audioElement.volume = 0.10; // Back to your 10% preference
+        audioElement.play().catch(error => console.log('Playback error:', error));
+    }
 }
