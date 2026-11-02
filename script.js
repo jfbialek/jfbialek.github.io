@@ -64,7 +64,7 @@ function search(x) {
             url = elem.value ? "https://www.flightradar24.com/" + elem.value : "https://www.flightradar24.com/";
             break;
         case 11:
-            url = "https://chatgpt.com/";
+            url = "https://ai.ashbrookedu.com/";   // Bialek AI
             break;
         case 12:
             url = "https://notes.ashbrookedu.com";
