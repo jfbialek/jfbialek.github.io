@@ -55,7 +55,7 @@ function search(x) {
             url = elem.value ? "https://en.wiktionary.org/wiki/Special:Search?search=" + elem.value : "https://en.wiktionary.org/wiki/Wiktionary:Main_Page";
             break;
         case 8:
-            url = elem.value ? "https://gocharting.com/terminal/chart/kp2J9Bmam" : "https://gocharting.com/terminal/chart/kp2J9Bmam";
+            url = "https://docs.google.com/spreadsheets/d/17CmumkVXA0LclhXz4EG3NpfxH8Buo_1411zHoH_jiZo/edit";   // The Bialek Budget
             break;
         case 9:
             url = elem.value ? "https://app.thestorygraph.com/browse?search_term=" + elem.value : "https://app.thestorygraph.com/";
