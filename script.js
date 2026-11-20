@@ -55,7 +55,7 @@ function search(x) {
             url = elem.value ? "https://en.wiktionary.org/wiki/Special:Search?search=" + elem.value : "https://en.wiktionary.org/wiki/Wiktionary:Main_Page";
             break;
         case 8:
-            url = "http://m900-thinkcentre-m900:8795/";   // The Bialek Budget (BMC box, Tailscale only; was the Google Sheet until 2026-11-20)
+            url = "http://100.95.42.25:8795/";   // The Bialek Budget (BMC box, Tailscale IP; hostnames do not resolve on the Mac)
             break;
         case 9:
             url = elem.value ? "https://app.thestorygraph.com/browse?search_term=" + elem.value : "https://app.thestorygraph.com/";
