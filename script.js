@@ -55,7 +55,7 @@ function search(x) {
             url = elem.value ? "https://en.wiktionary.org/wiki/Special:Search?search=" + elem.value : "https://en.wiktionary.org/wiki/Wiktionary:Main_Page";
             break;
         case 8:
-            url = "https://docs.google.com/spreadsheets/d/17CmumkVXA0LclhXz4EG3NpfxH8Buo_1411zHoH_jiZo/edit";   // The Bialek Budget
+            url = "http://m900-thinkcentre-m900:8795/";   // The Bialek Budget (BMC box, Tailscale only; was the Google Sheet until 2026-11-20)
             break;
         case 9:
             url = elem.value ? "https://app.thestorygraph.com/browse?search_term=" + elem.value : "https://app.thestorygraph.com/";
