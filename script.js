@@ -73,7 +73,7 @@ function search(x) {
             url = "https://libbyapp.com/";
             break;
         case 14:
-            url = "https://www.windy.com/";
+            url = "http://100.95.42.25:8790/";   // Bialekflix (BMC box, Tailscale IP)
             break;
         case 15:
             url = "https://ccc.ashbrookedu.com";
