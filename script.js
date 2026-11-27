@@ -55,7 +55,7 @@ function search(x) {
             url = elem.value ? "https://en.wiktionary.org/wiki/Special:Search?search=" + elem.value : "https://en.wiktionary.org/wiki/Wiktionary:Main_Page";
             break;
         case 8:
-            url = "http://100.95.42.25:8795/";   // The Bialek Budget (BMC box, Tailscale IP; hostnames do not resolve on the Mac)
+            url = "http://100.89.67.50:8795/";   // The Bialek Budget (BMC box, Tailscale IP; hostnames do not resolve on the Mac)
             break;
         case 9:
             url = elem.value ? "https://app.thestorygraph.com/browse?search_term=" + elem.value : "https://app.thestorygraph.com/";
@@ -73,7 +73,7 @@ function search(x) {
             url = "https://libbyapp.com/";
             break;
         case 14:
-            url = "http://100.95.42.25:8790/";   // Bialekflix (BMC box, Tailscale IP)
+            url = "http://100.89.67.50:8790/";   // Bialekflix (BMC box, Tailscale IP)
             break;
         case 15:
             url = "https://ccc.ashbrookedu.com";
